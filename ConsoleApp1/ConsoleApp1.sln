@@ -1,25 +1,55 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.2.32616.157
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{0BCE63B0-18AF-4705-A42B-32E08F31FEA9}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0BCE63B0-18AF-4705-A42B-32E08F31FEA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0BCE63B0-18AF-4705-A42B-32E08F31FEA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0BCE63B0-18AF-4705-A42B-32E08F31FEA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0BCE63B0-18AF-4705-A42B-32E08F31FEA9}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3DEE450E-356D-42B1-9EC2-EF3E4B225A11}
-	EndGlobalSection
-EndGlobal
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int num1;
+            int num2;
+            string operand;
+            ConsoleKeyInfo status;
+            float answer;
+
+            while (true)
+            {
+                Console.Write("Please enter the first number: ");
+                num1 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Please enter the second number: ");
+                num2 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Please enter an operand (+, -, /, *): ");
+                operand = Console.ReadLine();
+                switch (operand) 
+                {
+                    case "-":
+                        answer = num1 - num2;
+                        break;
+                    case "+":
+                        answer = num1 + num2;
+                        break;
+                    case "/":
+                        answer = num1 / num2;
+                        break;
+                    case "*":
+                        answer = num1 * num2;
+                        break;
+                    default:
+                        answer = 0;
+                        break;
+                }
+                Console.WriteLine(num1.ToString() + " " + operand + " " + num2.ToString() + " = " + answer.ToString());
+                Console.WriteLine("\n\n Do You Want To Break (Y/y)");
+                status = Console.ReadKey();
+                if (status.Key == ConsoleKey.Y)
+                {
+                    break;
+                }
+                Console.Clear();
+            }
+        }
+    }
+    }
